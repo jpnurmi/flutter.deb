@@ -22,6 +22,8 @@ jobs:
           - debian:11
     container:
       image: ${{matrix.image}}
+      env:
+        DEBIAN_FRONTEND: noninteractive
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
