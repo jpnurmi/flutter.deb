@@ -25,11 +25,11 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
-      - run: sudo apt install -y debhelper
+      - run: apt install -y debhelper
       - run: dpkg-buildpackage
-      - run: sudo apt install -y ../flutter_3+git_amd64.deb
+      - run: apt install -y ../flutter_3+git_amd64.deb
       - run: flutter doctor -v
-      - run: sudo apt install -y libayatana-appindicator3-dev xvfb
+      - run: apt install -y libayatana-appindicator3-dev xvfb
       - run: flutter build linux -v
         working-directory: test/flutter_app
       - run: xvfb-run -a -s "-screen 0 800x600x24 +extension GLX" flutter run -v -d linux
