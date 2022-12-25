@@ -156,7 +156,7 @@ Tools • Dart 2.18.6 • DevTools 2.15.0
       instructions).
 
 [✓] Connected device (1 available)
-    • Linux (desktop) \u2022 linux \u2022 linux-x64 \u2022 Ubuntu 22.04.1 LTS 5.15.0-56-generic
+    • Linux (desktop) • linux • linux-x64 • Ubuntu 22.04.1 LTS 5.15.0-56-generic
 
 [✓] HTTP Host Availability
     • All required HTTP hosts are available
