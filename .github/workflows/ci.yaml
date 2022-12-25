@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image:
+          - ubuntu:18.04
+          - ubuntu:20.04
+          - ubuntu:22.04
+          - ubuntu:22.10
+          - debian:10
+          - debian:11
+    container:
+      image: ${{matrix.image}}
+      env:
+        DEBIAN_FRONTEND: noninteractive
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - run: apt update
+      - run: apt install -y debhelper
+      - run: dpkg-buildpackage
+      - run: apt install -y ../flutter_3+git_amd64.deb
+      - run: flutter doctor -v
+      - run: apt install -y libayatana-appindicator3-dev xvfb
+      - run: flutter build linux -v
+        working-directory: test/flutter_app
+      - run: xvfb-run -a -s "-screen 0 800x600x24 +extension GLX" flutter run -v -d linux
+        working-directory: test/flutter_app
+        timeout-minutes: 15
