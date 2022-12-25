@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+FLUTTER_DIR=$HOME/.local/libexec/flutter
+FLUTTER=$FLUTTER_DIR/bin/flutter
+
+if [ ! -d "$FLUTTER_DIR" ]; then
+  echo "Initializing Flutter..."
+  git clone https://github.com/flutter/flutter.git -b stable $FLUTTER_DIR
+  $FLUTTER precache --linux
+  $FLUTTER --version
+  echo ""
+fi
+
+$FLUTTER "$@"
