@@ -25,6 +25,7 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
+      - run: apt update
       - run: apt install -y debhelper
       - run: dpkg-buildpackage
       - run: apt install -y ../flutter_3+git_amd64.deb
