@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   flutter_secure_storage_linux
+  hotkey_manager
   tray_manager
   window_manager
 )

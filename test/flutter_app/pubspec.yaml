@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_secure_storage: ^7.0.1
+  hotkey_manager: ^0.1.7
   tray_manager: ^0.2.0
   window_manager: ^0.1.5
 
