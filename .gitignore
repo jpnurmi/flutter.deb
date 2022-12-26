@@ -1,5 +1,6 @@
 debian/.debhelper
 debian/debhelper-build-stamp
 debian/files
+debian/flutter.debhelper.log
 debian/flutter.substvars
 debian/flutter/
